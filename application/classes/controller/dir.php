@@ -2,7 +2,7 @@
 defined('SYSPATH') or die('No direct script access.');
 define('MEDIAPATH', realpath('media').DIRECTORY_SEPARATOR);
 
-class Controller_Directory extends Controller {
+class Controller_Dir extends Controller {
 
 	public function action_index() {	
 		$directories = array();
@@ -24,6 +24,10 @@ class Controller_Directory extends Controller {
 		}
 
 		$this->request->response = count($musicFiles);
+	}
+	
+	public function action_subdir($dir) {
+		$this->request->response = "The directory is $dir!";
 	}
 
 } // End Welcome

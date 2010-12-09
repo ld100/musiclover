@@ -94,7 +94,7 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'directory',
+		'controller' => 'dir',
 		'action'     => 'index',
 	));
 
