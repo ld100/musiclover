@@ -2,7 +2,7 @@
 defined('SYSPATH') or die('No direct script access.');
 define('MEDIAPATH', realpath('media').DIRECTORY_SEPARATOR);
 
-class Controller_Dir extends Controller {
+class Controller_Dir extends Controller_DefaultTemplate {
 
 	public function action_index() {	
 		$directories = array();
@@ -23,7 +23,18 @@ class Controller_Dir extends Controller {
 			$musicFiles[] = new Model_Musicfile($file);
 		}
 
-		$this->request->response = count($musicFiles);
+		//$this->request->response = count($musicFiles);
+		//$view = View::factory('pages/dir');
+		//$this->request->response = View::factory('pages/dir');
+		
+		$this->template->title = "";
+		$response = array();
+		$response['content'] = $musicFiles[0]->show();
+		$response['items'] = $musicFiles;
+		$response['directories'] = $directories;
+		
+		
+		$this->template->content = View::factory('pages/dir', $response);
 	}
 	
 	public function action_subdir($dir) {

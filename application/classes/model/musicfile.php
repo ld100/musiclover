@@ -31,7 +31,7 @@ class Model_Musicfile extends Model {
 	}
 	
 	public function show() {
-		return print_r($this->data);
+		return $this->data;
 	}
 	
     public function __get($name) {
